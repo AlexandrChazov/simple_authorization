@@ -10,7 +10,7 @@ router.post("/registration",
   check('username', "A username should not be empty").notEmpty(),
   check('password', "A password length should be more than 4 and less than 10 symbols").isLength({ min: 4, max: 10 }),
   authController.registration)
-router.post("/login", authController.logingit )
+router.post("/login", authController.login )
 router.get("/users", roleMiddleware(["ADMIN"]), authController.getUsers) // authMiddleware добавляет к реквесту поле "user": { id, roles }
 
 module.exports = router;
